@@ -34,7 +34,7 @@ export function BikeExplorer({
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
-    const band = CC_BANDS[ccBand];
+    const band = CC_BANDS[ccBand] ?? CC_BANDS[0]!;
     return allBikes.filter((b) => {
       if (condition && b.condition !== condition) return false;
       if (!condition && cond !== "All" && b.condition !== cond) return false;
@@ -118,7 +118,7 @@ export function BikeExplorer({
               min={100000}
               max={2200000}
               step={10000}
-              onValueChange={(v) => setMaxPrice(v[0])}
+              onValueChange={(v) => setMaxPrice(v[0] ?? 2200000)}
               aria-label="Maximum price"
             />
           </FilterGroup>
