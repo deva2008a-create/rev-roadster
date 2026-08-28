@@ -141,9 +141,9 @@ function Field({
 }: {
   label: string;
   name: string;
-  error?: string;
-  type?: string;
-  placeholder?: string;
+  error?: string | undefined;
+  type?: string | undefined;
+  placeholder?: string | undefined;
 }) {
   return (
     <div className="grid gap-2">

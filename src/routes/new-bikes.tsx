@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { BikeExplorer } from "@/components/site/BikeExplorer";
 
 export const Route = createFileRoute("/new-bikes")({
-  validateSearch: (search: Record<string, unknown>): { q?: string } => ({
+  validateSearch: (search: Record<string, unknown>): { q?: string | undefined } => ({
     q: typeof search["q"] === "string" ? search["q"] : undefined,
   }),
 
