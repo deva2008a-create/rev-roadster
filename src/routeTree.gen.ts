@@ -10,33 +10,180 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BookingRouteImport } from './routes/booking'
+import { Route as BrandsRouteImport } from './routes/brands'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as NewBikesRouteImport } from './routes/new-bikes'
+import { Route as OffersRouteImport } from './routes/offers'
+import { Route as SellRouteImport } from './routes/sell'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as UsedBikesRouteImport } from './routes/used-bikes'
+import { Route as WishlistRouteImport } from './routes/wishlist'
+import { Route as BikeBikeIdRouteImport } from './routes/bike.$bikeId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BookingRoute = BookingRouteImport.update({
+  id: '/booking',
+  path: '/booking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandsRoute = BrandsRouteImport.update({
+  id: '/brands',
+  path: '/brands',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewBikesRoute = NewBikesRouteImport.update({
+  id: '/new-bikes',
+  path: '/new-bikes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OffersRoute = OffersRouteImport.update({
+  id: '/offers',
+  path: '/offers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SellRoute = SellRouteImport.update({
+  id: '/sell',
+  path: '/sell',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UsedBikesRoute = UsedBikesRouteImport.update({
+  id: '/used-bikes',
+  path: '/used-bikes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WishlistRoute = WishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BikeBikeIdRoute = BikeBikeIdRouteImport.update({
+  id: '/bike/$bikeId',
+  path: '/bike/$bikeId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/booking': typeof BookingRoute
+  '/brands': typeof BrandsRoute
+  '/contact': typeof ContactRoute
+  '/login': typeof LoginRoute
+  '/new-bikes': typeof NewBikesRoute
+  '/offers': typeof OffersRoute
+  '/sell': typeof SellRoute
+  '/signup': typeof SignupRoute
+  '/used-bikes': typeof UsedBikesRoute
+  '/wishlist': typeof WishlistRoute
+  '/bike/$bikeId': typeof BikeBikeIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/booking': typeof BookingRoute
+  '/brands': typeof BrandsRoute
+  '/contact': typeof ContactRoute
+  '/login': typeof LoginRoute
+  '/new-bikes': typeof NewBikesRoute
+  '/offers': typeof OffersRoute
+  '/sell': typeof SellRoute
+  '/signup': typeof SignupRoute
+  '/used-bikes': typeof UsedBikesRoute
+  '/wishlist': typeof WishlistRoute
+  '/bike/$bikeId': typeof BikeBikeIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/booking': typeof BookingRoute
+  '/brands': typeof BrandsRoute
+  '/contact': typeof ContactRoute
+  '/login': typeof LoginRoute
+  '/new-bikes': typeof NewBikesRoute
+  '/offers': typeof OffersRoute
+  '/sell': typeof SellRoute
+  '/signup': typeof SignupRoute
+  '/used-bikes': typeof UsedBikesRoute
+  '/wishlist': typeof WishlistRoute
+  '/bike/$bikeId': typeof BikeBikeIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/booking'
+    | '/brands'
+    | '/contact'
+    | '/login'
+    | '/new-bikes'
+    | '/offers'
+    | '/sell'
+    | '/signup'
+    | '/used-bikes'
+    | '/wishlist'
+    | '/bike/$bikeId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/booking'
+    | '/brands'
+    | '/contact'
+    | '/login'
+    | '/new-bikes'
+    | '/offers'
+    | '/sell'
+    | '/signup'
+    | '/used-bikes'
+    | '/wishlist'
+    | '/bike/$bikeId'
+  id:
+    | '__root__'
+    | '/'
+    | '/booking'
+    | '/brands'
+    | '/contact'
+    | '/login'
+    | '/new-bikes'
+    | '/offers'
+    | '/sell'
+    | '/signup'
+    | '/used-bikes'
+    | '/wishlist'
+    | '/bike/$bikeId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BookingRoute: typeof BookingRoute
+  BrandsRoute: typeof BrandsRoute
+  ContactRoute: typeof ContactRoute
+  LoginRoute: typeof LoginRoute
+  NewBikesRoute: typeof NewBikesRoute
+  OffersRoute: typeof OffersRoute
+  SellRoute: typeof SellRoute
+  SignupRoute: typeof SignupRoute
+  UsedBikesRoute: typeof UsedBikesRoute
+  WishlistRoute: typeof WishlistRoute
+  BikeBikeIdRoute: typeof BikeBikeIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +195,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/booking': {
+      id: '/booking'
+      path: '/booking'
+      fullPath: '/booking'
+      preLoaderRoute: typeof BookingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brands': {
+      id: '/brands'
+      path: '/brands'
+      fullPath: '/brands'
+      preLoaderRoute: typeof BrandsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new-bikes': {
+      id: '/new-bikes'
+      path: '/new-bikes'
+      fullPath: '/new-bikes'
+      preLoaderRoute: typeof NewBikesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/offers': {
+      id: '/offers'
+      path: '/offers'
+      fullPath: '/offers'
+      preLoaderRoute: typeof OffersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sell': {
+      id: '/sell'
+      path: '/sell'
+      fullPath: '/sell'
+      preLoaderRoute: typeof SellRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/used-bikes': {
+      id: '/used-bikes'
+      path: '/used-bikes'
+      fullPath: '/used-bikes'
+      preLoaderRoute: typeof UsedBikesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wishlist': {
+      id: '/wishlist'
+      path: '/wishlist'
+      fullPath: '/wishlist'
+      preLoaderRoute: typeof WishlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bike/$bikeId': {
+      id: '/bike/$bikeId'
+      path: '/bike/$bikeId'
+      fullPath: '/bike/$bikeId'
+      preLoaderRoute: typeof BikeBikeIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BookingRoute: BookingRoute,
+  BrandsRoute: BrandsRoute,
+  ContactRoute: ContactRoute,
+  LoginRoute: LoginRoute,
+  NewBikesRoute: NewBikesRoute,
+  OffersRoute: OffersRoute,
+  SellRoute: SellRoute,
+  SignupRoute: SignupRoute,
+  UsedBikesRoute: UsedBikesRoute,
+  WishlistRoute: WishlistRoute,
+  BikeBikeIdRoute: BikeBikeIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
