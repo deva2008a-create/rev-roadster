@@ -10,33 +10,73 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BrandsRouteImport } from './routes/brands'
+import { Route as NewBikesRouteImport } from './routes/new-bikes'
+import { Route as OffersRouteImport } from './routes/offers'
+import { Route as UsedBikesRouteImport } from './routes/used-bikes'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BrandsRoute = BrandsRouteImport.update({
+  id: '/brands',
+  path: '/brands',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewBikesRoute = NewBikesRouteImport.update({
+  id: '/new-bikes',
+  path: '/new-bikes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OffersRoute = OffersRouteImport.update({
+  id: '/offers',
+  path: '/offers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UsedBikesRoute = UsedBikesRouteImport.update({
+  id: '/used-bikes',
+  path: '/used-bikes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/brands': typeof BrandsRoute
+  '/new-bikes': typeof NewBikesRoute
+  '/offers': typeof OffersRoute
+  '/used-bikes': typeof UsedBikesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/brands': typeof BrandsRoute
+  '/new-bikes': typeof NewBikesRoute
+  '/offers': typeof OffersRoute
+  '/used-bikes': typeof UsedBikesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/brands': typeof BrandsRoute
+  '/new-bikes': typeof NewBikesRoute
+  '/offers': typeof OffersRoute
+  '/used-bikes': typeof UsedBikesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/brands' | '/new-bikes' | '/offers' | '/used-bikes'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/brands' | '/new-bikes' | '/offers' | '/used-bikes'
+  id: '__root__' | '/' | '/brands' | '/new-bikes' | '/offers' | '/used-bikes'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BrandsRoute: typeof BrandsRoute
+  NewBikesRoute: typeof NewBikesRoute
+  OffersRoute: typeof OffersRoute
+  UsedBikesRoute: typeof UsedBikesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +88,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/brands': {
+      id: '/brands'
+      path: '/brands'
+      fullPath: '/brands'
+      preLoaderRoute: typeof BrandsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new-bikes': {
+      id: '/new-bikes'
+      path: '/new-bikes'
+      fullPath: '/new-bikes'
+      preLoaderRoute: typeof NewBikesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/offers': {
+      id: '/offers'
+      path: '/offers'
+      fullPath: '/offers'
+      preLoaderRoute: typeof OffersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/used-bikes': {
+      id: '/used-bikes'
+      path: '/used-bikes'
+      fullPath: '/used-bikes'
+      preLoaderRoute: typeof UsedBikesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BrandsRoute: BrandsRoute,
+  NewBikesRoute: NewBikesRoute,
+  OffersRoute: OffersRoute,
+  UsedBikesRoute: UsedBikesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -2,9 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { BikeExplorer } from "@/components/site/BikeExplorer";
 
 export const Route = createFileRoute("/new-bikes")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    q: typeof search.q === "string" ? search.q : undefined,
+  validateSearch: (search: Record<string, unknown>): { q?: string } => ({
+    q: typeof search["q"] === "string" ? search["q"] : undefined,
   }),
+
   head: () => ({
     meta: [
       { title: "New Bikes for Sale | BikeZone" },
